@@ -1,0 +1,11 @@
+stages:
+  - deploy
+
+deploy_vercel:
+  stage: deploy
+  only:
+    - main # Ubah ini sesuai dengan branch yang ingin Anda deploy
+  script:
+    - npm install -g vercel
+    - vercel login -t $VERCEL_TOKEN # $VERCEL_TOKEN adalah variabel rahasia yang harus Anda atur di pengaturan CI/CD GitLab Anda
+    - vercel # atau sesuaikan dengan opsi deployment yang Anda inginkan

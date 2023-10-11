@@ -1,0 +1,32 @@
+export interface Patient {
+    id?: string;
+    satusehatId?: string;
+    sisdmkId?: string;
+    nik: number;
+    passport?: string;
+    KKName?: string;
+    KKNumber?: string;
+    name: string;
+    birthDate: date | string;
+    birthPlace: string;
+    gender: string;
+    religion?: string;
+    bloodType?: string;
+    nativeLangguage?: string;
+    contactPrimaryId?: string;
+    contactSecondaryId?: string;
+    maritalStatus?: string;
+    residenceAddress?: Address | string;
+    ktpAddress?: Address | string;
+    multipleBirthInteger?: number;
+    nationality?: string;
+    lastDegree?: string;
+    occupation?: string;
+    race?: string;
+    createdAt?: datetime;
+    createdBy?: string;
+    updatedAt?: datetime;
+    updatedBy?: string;
+    deletedAt?: datetime;
+    deletedBy?: string;
+}
