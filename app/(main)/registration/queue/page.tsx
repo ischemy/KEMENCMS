@@ -58,7 +58,7 @@ const Queue = ({ children }: any) => {
                     />
                 </div>
                 <div className="col-12 md:col-1">
-                    <Button rounded style={{ background: '#3899FE' }} label="Cari" />
+                    <Button  style={{ background: '#3899FE' }} label="Cari" />
                 </div>
             </div>
         </div>
