@@ -19,16 +19,16 @@ const Queue = ({ children }: any) => {
 
     const listSearchType = [
         {
-            display: 'NIK',
-            code: 'NIK'
+            display: 'No.Antrian',
+            code: 'NoAntrian'
         },
         {
             display: 'Nama',
-            code: 'NAMA'
+            code: 'NAMA_PASIEN'
         },
         {
-            display: 'No Antrian',
-            code: 'NO_ANTRIAN'
+            display: 'KK',
+            code: 'KK'
         }
     ];
     const header = (
