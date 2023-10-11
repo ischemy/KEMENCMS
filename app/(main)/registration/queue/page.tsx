@@ -5,6 +5,7 @@ import { InputText } from 'primereact/inputtext';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
+import '../../../../styles/layout/layout.scss';
 
 const Queue = ({ children }: any) => {
     const dt = useRef<DataTable<any>>(null);
@@ -50,6 +51,7 @@ const Queue = ({ children }: any) => {
                 <div className="col-12 md:col-4">
                     <InputText
                         style={{ borderRadius: '99px', width: '280px' }}
+                        className="inputtext"
                         placeholder="Kata Kunci .. "
                         onChange={(e) => {
                             setSearch(e.target.value);
@@ -58,7 +60,7 @@ const Queue = ({ children }: any) => {
                     />
                 </div>
                 <div className="col-12 md:col-1">
-                    <Button  style={{ background: '#3899FE' }} label="Cari" />
+                    <Button style={{ background: '#3899FE', border: 'none' }} label="Cari" />
                 </div>
             </div>
         </div>
@@ -88,29 +90,33 @@ const Queue = ({ children }: any) => {
         );
     };
     return (
-        <div className="grid">
+        <div className="grid ">
             <div className="col-12">
                 <div className="card">
                     <DataTable
                         ref={dt}
                         value={queues}
                         dataKey="name"
-                        // paginator
+                        paginator
                         rows={10}
                         // rowsPerPageOptions={[5, 10, 25]}
                         className="datatable-responsive"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-                        // currentPageReportTemplate="Menampilkan {first} sampai {last} dari {totalRecords} Data"
+                        currentPageReportTemplate="Menampilkan {first} sampai {last} dari {totalRecords} Data"
                         globalFilter={globalFilter}
                         emptyMessage="Tidak ada data"
                         header={header}
                         responsiveLayout="scroll"
                     >
-                        <Column field="no_antrian" header="No Antrian" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="rm" header="RM" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="nik" header="NIK" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="name" header="Nama" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="umur" header="Umur" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="noAntrian" header="NO ANTRIAN" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="rekamMedis" header="REKAM MEDIS" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="cmLama" header="CM LAMA" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="namaPasien" header="NAMA PASIEN" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="kk" header="KK" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="tglLahir" header="TANGGAL LAHIR" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="umur" header="UMUR" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="alamat" header="ALAMAT" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="pelayanan" header="PELAYANAN" sortable headerStyle={{ minWidth: '15rem' }}></Column>
                         <Column header="Aksi" body={actionBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
                     </DataTable>
                     <p></p>
