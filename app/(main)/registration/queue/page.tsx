@@ -93,12 +93,12 @@ const Queue = ({ children }: any) => {
                         ref={dt}
                         value={queues}
                         dataKey="name"
-                        paginator
+                        // paginator
                         rows={10}
-                        rowsPerPageOptions={[5, 10, 25]}
+                        // rowsPerPageOptions={[5, 10, 25]}
                         className="datatable-responsive"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
-                        currentPageReportTemplate="Menampilkan {first} sampai {last} dari {totalRecords} Data"
+                        // currentPageReportTemplate="Menampilkan {first} sampai {last} dari {totalRecords} Data"
                         globalFilter={globalFilter}
                         emptyMessage="Tidak ada data"
                         header={header}
@@ -111,6 +111,8 @@ const Queue = ({ children }: any) => {
                         <Column field="umur" header="Umur" sortable headerStyle={{ minWidth: '15rem' }}></Column>
                         <Column header="Aksi" body={actionBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
                     </DataTable>
+                    <p>
+                    </p>
                 </div>
             </div>
         </div>
