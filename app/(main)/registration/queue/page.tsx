@@ -40,6 +40,7 @@ const Queue = ({ children }: any) => {
                         onChange={(e) => {
                             setSearchType(e.target.value);
                         }}
+                        style={{ borderRadius: '99px', width: '200px' }}
                         options={listSearchType}
                         optionLabel="display"
                         optionValue="code"
@@ -48,6 +49,7 @@ const Queue = ({ children }: any) => {
                 </div>
                 <div className="col-12 md:col-4">
                     <InputText
+                        style={{ borderRadius: '99px', width: '280px' }}
                         placeholder="Kata Kunci .. "
                         onChange={(e) => {
                             setSearch(e.target.value);
@@ -111,8 +113,7 @@ const Queue = ({ children }: any) => {
                         <Column field="umur" header="Umur" sortable headerStyle={{ minWidth: '15rem' }}></Column>
                         <Column header="Aksi" body={actionBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
                     </DataTable>
-                    <p>
-                    </p>
+                    <p></p>
                 </div>
             </div>
         </div>
