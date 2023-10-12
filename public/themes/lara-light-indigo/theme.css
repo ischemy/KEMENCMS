@@ -81,6 +81,7 @@
 .p-icon {
   width: 1rem;
   height: 1rem;
+  
 }
 
 .p-link {
@@ -775,7 +776,7 @@
 }
 .p-dropdown .p-dropdown-trigger {
   background: transparent;
-  color: #6c757d;
+  color: #3899FE;
   width: 3rem;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;

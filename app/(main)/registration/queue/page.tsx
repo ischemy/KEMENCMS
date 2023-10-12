@@ -1,15 +1,17 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { DataTable } from 'primereact/datatable';
 import { InputText } from 'primereact/inputtext';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 import { TabView, TabPanel } from 'primereact/tabview';
+import { ProductService } from '../../../../demo/service/ProductService';
 
 const Queue = ({ children }: any) => {
     const dt = useRef<DataTable<any>>(null);
     const [queues, setQueues] = useState(null);
+    const [product, setProducts] = useState([]);
     const [globalFilter, setGlobalFilter] = useState('');
     const [editDialog, setEditDialog] = useState(false);
     const [detailDialog, setDetailDialog] = useState(false);
@@ -61,6 +63,9 @@ const Queue = ({ children }: any) => {
                 <div className="col-12 md:col-1">
                     <Button style={{ background: '#3899FE', border: 'none' }} label="Cari" />
                 </div>
+                <div className="col-12 md:col-1">
+                    <Button style={{ background: 'white', border: 'none', color: '#3899FE' }} label="Pendaftaran Baru" icon="pi pi-plus" />
+                </div>
             </div>
         </div>
     );
@@ -82,22 +87,24 @@ const Queue = ({ children }: any) => {
     const actionBodyTemplate = (rowData: Location) => {
         return (
             <>
-                <Button icon="pi pi-bars" rounded severity="info" className="mr-2" onClick={() => detailModal(rowData)} />
-                <Button icon="pi pi-pencil" rounded severity="success" className="mr-2" onClick={() => editModal(rowData)} />
-                <Button icon="pi pi-trash" rounded severity="warning" onClick={() => confirmDelete(rowData)} />
+                <Button icon="pi pi-pencil" severity="success" className="mr-2 " onClick={() => editModal(rowData)} />
+                <Button icon="pi pi-trash" severity="danger" onClick={() => confirmDelete(rowData)} />
             </>
         );
     };
+    useEffect(() => {
+        ProductService.getProductsSmall().then((response) => setProducts(response));
+    }, []);
     return (
         <div className="grid ">
             <div className="col-12">
                 <div className="card">
                     <DataTable
                         ref={dt}
-                        value={queues}
+                        value={product}
                         dataKey="name"
                         paginator
-                        rows={10}
+                        rows={5}
                         // rowsPerPageOptions={[5, 10, 25]}
                         className="datatable-responsive"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
