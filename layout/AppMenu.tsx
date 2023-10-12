@@ -16,13 +16,22 @@ const AppMenu = () => {
             items: [
                 {
                     label: 'Dashboard',
-                    icon: '../../public/layout/images/home.svg',
+                    icon: 'pi pi-fw pi-home',
                     to: '/'
                 },
                 {
                     label: 'Pendaftaran',
-                    icon: 'pi pi-fw pi-bookmark',
-                    to: '/registration'
+                    icon: 'pi pi-fw pi-user-plus',
+                    items: [
+                        {
+                            label: 'Pendaftaran Umum',
+                            to: '/registration'
+                        },
+                        {
+                            label: 'Pendaftaran BPJS',
+                            to: '/registration'
+                        }
+                    ]
                 }
             ]
         },
@@ -31,8 +40,8 @@ const AppMenu = () => {
             icon: 'pi pi-fw pi-bookmark',
             items: [
                 {
-                    label: 'Akses',
-                    icon: 'pi pi-fw pi-user',
+                    label: 'Akses Pengguna',
+                    icon: 'pi pi-fw pi-users',
                     items: [
                         {
                             label: 'Pengguna',
@@ -48,7 +57,7 @@ const AppMenu = () => {
                 },
                 {
                     label: 'Master Data',
-                    icon: 'pi pi-fw pi-bookmark',
+                    icon: 'pi pi-fw pi-database',
                     items: [
                         {
                             label: 'Organisasi/Faskes',
@@ -102,15 +111,15 @@ const AppMenu = () => {
                             ]
                         }
                     ]
-                },
-                {
-                    label: 'Logs',
-                    icon: 'pi pi-fw pi-bookmark',
-                    items: [
-                        { label: 'Dashboard', icon: 'pi pi-fw pi-bookmark' },
-                        { label: 'Logs', icon: 'pi pi-fw pi-bookmark' }
-                    ]
                 }
+                // {
+                //     label: 'Logs',
+                //     icon: 'pi pi-fw pi-bookmark',
+                //     items: [
+                //         { label: 'Dashboard', icon: 'pi pi-fw pi-bookmark' },
+                //         { label: 'Logs', icon: 'pi pi-fw pi-bookmark' }
+                //     ]
+                // }
             ]
         }
     ];

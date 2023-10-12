@@ -5,7 +5,7 @@ import { InputText } from 'primereact/inputtext';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
-import '../../../../styles/layout/layout.scss';
+import { TabView, TabPanel } from 'primereact/tabview';
 
 const Queue = ({ children }: any) => {
     const dt = useRef<DataTable<any>>(null);
@@ -33,7 +33,6 @@ const Queue = ({ children }: any) => {
     ];
     const header = (
         <div className="flex flex-column md:align-items-start">
-            <h5>Pendaftaran Umum</h5>
             <div className="flex md:justify-content-between">
                 <div className="col-12 md:col-2">
                     <Dropdown
