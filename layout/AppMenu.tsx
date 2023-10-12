@@ -29,7 +29,7 @@ const AppMenu = () => {
                         },
                         {
                             label: 'Pendaftaran BPJS',
-                            to: '/registration'
+                            to: '/bpjsregist'
                         }
                     ]
                 }

@@ -35,50 +35,48 @@ const Queue = ({ children }: any) => {
         }
     ];
     const header = (
-        <>
-            <div className="flex justify-content-between">
-                <div className="flex flex-column md:align-items-start">
-                    <div className="flex md:justify-content-between">
-                        <div className="col-12 md:col-2">
-                            <Dropdown
-                                value={searchType}
+        <div className="flex justify-content-between">
+            <div className="flex flex-column md:align-items-start">
+                <div className="flex md:justify-content-between">
+                    <div className="col-12 md:col-2">
+                        <Dropdown
+                            value={searchType}
+                            onChange={(e) => {
+                                setSearchType(e.target.value);
+                            }}
+                            style={{ borderRadius: '99px', width: '200px' }}
+                            options={listSearchType}
+                            optionLabel="display"
+                            optionValue="code"
+                            placeholder="Jenis"
+                        />
+                    </div>
+                    <div className="col-12 md:col-4">
+                        <span className="p-input-icon-left">
+                            <i className="pi pi-search" />
+                            <InputText
+                                style={{ borderRadius: '99px', width: '280px' }}
+                                className="inputtext"
+                                placeholder="Cari Nama Pasien "
                                 onChange={(e) => {
-                                    setSearchType(e.target.value);
+                                    setSearch(e.target.value);
                                 }}
-                                style={{ borderRadius: '99px', width: '200px' }}
-                                options={listSearchType}
-                                optionLabel="display"
-                                optionValue="code"
-                                placeholder="Jenis"
+                                value={search}
                             />
-                        </div>
-                        <div className="col-12 md:col-4">
-                            <span className="p-input-icon-left">
-                                <i className="pi pi-search" />
-                                <InputText
-                                    style={{ borderRadius: '99px', width: '280px' }}
-                                    className="inputtext"
-                                    placeholder="Cari Nama Pasien "
-                                    onChange={(e) => {
-                                        setSearch(e.target.value);
-                                    }}
-                                    value={search}
-                                />
-                            </span>
-                        </div>
-                        <div className="col-12 md:col-1">
-                            <Button style={{ background: '#3899FE', border: 'none' }} label="Cari" />
-                        </div>
+                        </span>
+                    </div>
+                    <div className="col-12 md:col-1">
+                        <Button style={{ background: '#3899FE', border: 'none' }} label="Cari" />
                     </div>
                 </div>
-                <div className="col-12 md:col-1">
-                    <Link href={'/'}>
-                        <i className="pi pi-fw pi-plus " style={{ color: '#3899FE' }}></i>
-                        Pendaftaran Baru
-                    </Link>
-                </div>
             </div>
-        </>
+            <div className="col-12 md:col-1">
+                <Link href={'/'}>
+                    <i className="pi pi-fw pi-plus " style={{ color: '#3899FE' }}></i>
+                    Pendaftaran Baru
+                </Link>
+            </div>
+        </div>
     );
 
     const detailModal = (queue: any) => {

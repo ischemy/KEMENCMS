@@ -7,9 +7,8 @@ import { Dropdown } from 'primereact/dropdown';
 import { Dialog } from 'primereact/dialog';
 import { useRouter } from 'next/navigation';
 import { TabView, TabPanel } from 'primereact/tabview';
-import QueuePatient from './patient-queue/page';
 
-const RegistrationPage = ({ children }: any) => {
+const BPJSRegistrationPage = ({ children }: any) => {
     interface ConfirmContent {
         title: string;
         nik: string;
@@ -73,7 +72,13 @@ const RegistrationPage = ({ children }: any) => {
                         <Queue />
                     </TabPanel>
                     <TabPanel header="Antrian Pasien">
-                        <QueuePatient />
+                        <p className="m-0">
+                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo
+                            enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+                        </p>
+                    </TabPanel>
+                    <TabPanel header="Antrian PCare BPJS">
+                        <p className="m-0">am voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.</p>
                     </TabPanel>
                 </TabView>
                 {/* <div className="flex md:justify-content-between">
@@ -142,4 +147,4 @@ const RegistrationPage = ({ children }: any) => {
     );
 };
 
-export default RegistrationPage;
+export default BPJSRegistrationPage;

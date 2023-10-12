@@ -8,8 +8,9 @@ import { Dropdown } from 'primereact/dropdown';
 import { TabView, TabPanel } from 'primereact/tabview';
 import { ProductService } from '../../../../demo/service/ProductService';
 import Link from 'next/link';
+import { Calendar } from 'primereact/calendar';
 
-const Queue = ({ children }: any) => {
+const QueuePatient = ({ children }: any) => {
     const dt = useRef<DataTable<any>>(null);
     const [queues, setQueues] = useState(null);
     const [product, setProducts] = useState([]);
@@ -19,6 +20,7 @@ const Queue = ({ children }: any) => {
     const [deleteDialog, setDeleteDialog] = useState(false);
     const [search, setSearch] = useState('');
     const [searchType, setSearchType] = useState();
+    const [date, setDate] = useState(null);
 
     const listSearchType = [
         {
@@ -40,6 +42,7 @@ const Queue = ({ children }: any) => {
                 <div className="flex flex-column md:align-items-start">
                     <div className="flex md:justify-content-between">
                         <div className="col-12 md:col-2">
+                            <h6>Poliklinik</h6>
                             <Dropdown
                                 value={searchType}
                                 onChange={(e) => {
@@ -49,26 +52,45 @@ const Queue = ({ children }: any) => {
                                 options={listSearchType}
                                 optionLabel="display"
                                 optionValue="code"
-                                placeholder="Jenis"
+                                placeholder="Pilih poliklinik"
                             />
                         </div>
-                        <div className="col-12 md:col-4">
-                            <span className="p-input-icon-left">
-                                <i className="pi pi-search" />
-                                <InputText
-                                    style={{ borderRadius: '99px', width: '280px' }}
-                                    className="inputtext"
-                                    placeholder="Cari Nama Pasien "
-                                    onChange={(e) => {
-                                        setSearch(e.target.value);
-                                    }}
-                                    value={search}
-                                />
-                            </span>
+                        <div className="col-12 md:col-2">
+                            <h6>Status</h6>
+                            <Dropdown
+                                value={searchType}
+                                onChange={(e) => {
+                                    setSearchType(e.target.value);
+                                }}
+                                style={{ borderRadius: '99px', width: '200px' }}
+                                options={listSearchType}
+                                optionLabel="display"
+                                optionValue="code"
+                                placeholder="Pilih Status"
+                            />
                         </div>
-                        <div className="col-12 md:col-1">
+                        <div className="col-12 md:col-2">
+                            <h6>Jenis Pelayanan</h6>
+                            <Dropdown
+                                value={searchType}
+                                onChange={(e) => {
+                                    setSearchType(e.target.value);
+                                }}
+                                style={{ borderRadius: '99px', width: '200px' }}
+                                options={listSearchType}
+                                optionLabel="display"
+                                optionValue="code"
+                                placeholder="Pilih Jenis Pelayanan"
+                            />
+                        </div>
+                        <div className="col-12 md:col-3">
+                            <h6>Tanggal</h6>
+                            <Calendar value={date} showIcon style={{ borderRadius: '99px', width: '200px' }} />
+                        </div>
+
+                        {/* <div className="col-12 md:col-1">
                             <Button style={{ background: '#3899FE', border: 'none' }} label="Cari" />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <div className="col-12 md:col-1">
@@ -143,4 +165,4 @@ const Queue = ({ children }: any) => {
     );
 };
 
-export default Queue;
+export default QueuePatient;
