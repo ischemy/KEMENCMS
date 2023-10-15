@@ -1,16 +1,20 @@
+/* eslint-disable react/jsx-no-undef */
 'use client';
 import React, { useState } from 'react';
-import Queue from './queue/page';
+// import Queue from './queue/page';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 import { Dialog } from 'primereact/dialog';
 import { useRouter } from 'next/navigation';
 import { TabView, TabPanel } from 'primereact/tabview';
-import QueuePatient from './patient-queue/page';
-import Crud from '../pages/crud/page';
+import Queue from '../queue/page';
+import QueuePatient from '../patient-queue/page';
+import Crud from '../../pages/crud/page';
+// import QueuePatient from './patient-queue/page';
+// import Crud from '../pages/crud/page';
 
-const BPJSRegistrationPage = ({ children }: any) => {
+const FormPasien = ({ children }: any) => {
     interface ConfirmContent {
         title: string;
         nik: string;
@@ -69,20 +73,14 @@ const BPJSRegistrationPage = ({ children }: any) => {
         <div>
             <div className="flex flex-column md:align-items-start">
                 <h5>Pendaftaran Umum</h5>
-                <TabView>
-                    <TabPanel header="Data Pasien">
-                        <Queue />
-                    </TabPanel>
-                    <TabPanel header="Antrian Pasien">
-                        <QueuePatient />
-                    </TabPanel>
-                    <TabPanel header="Antrian PCare BPJS">
-                        <Crud />
-                    </TabPanel>
+                <TabView style={{ borderRadius: '99px' }}>
+                    <TabPanel style={{ borderRadius: '99px', border: '1px solid #3899FE' }} header="Umum"></TabPanel>
+                    <TabPanel header="JAMKESDA"></TabPanel>
+                    <TabPanel header="JKN BPJS"></TabPanel>
                 </TabView>
             </div>
         </div>
     );
 };
 
-export default BPJSRegistrationPage;
+export default FormPasien;

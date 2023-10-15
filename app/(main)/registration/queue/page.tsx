@@ -72,7 +72,7 @@ const Queue = ({ children }: any) => {
                     </div>
                 </div>
                 <div className="col-12 md:col-1">
-                    <Link href={'/'}>
+                    <Link href={'/registration/formPasien'}>
                         <i className="pi pi-fw pi-plus " style={{ color: '#3899FE' }}></i>
                         Pendaftaran Baru
                     </Link>

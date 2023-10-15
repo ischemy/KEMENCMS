@@ -22,16 +22,7 @@ const AppMenu = () => {
                 {
                     label: 'Pendaftaran',
                     icon: 'pi pi-fw pi-user-plus',
-                    items: [
-                        {
-                            label: 'Pendaftaran Umum',
-                            to: '/registration'
-                        },
-                        {
-                            label: 'Pendaftaran BPJS',
-                            to: '/bpjsregist'
-                        }
-                    ]
+                    to: '/registration'
                 }
             ]
         },
