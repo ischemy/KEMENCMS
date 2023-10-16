@@ -10,7 +10,7 @@ import { ProductService } from '../../../../demo/service/ProductService';
 import Link from 'next/link';
 import { Calendar } from 'primereact/calendar';
 
-const QueuePatient = ({ children }: any) => {
+const QueuePCare = ({ children }: any) => {
     const dt = useRef<DataTable<any>>(null);
     const [queues, setQueues] = useState(null);
     const [product, setProducts] = useState([]);
@@ -41,12 +41,12 @@ const QueuePatient = ({ children }: any) => {
             <div className="flex justify-content-between">
                 <div className="flex flex-column md:align-items-start">
                     <div className="flex md:justify-content-between">
-                        <div className="col-12 md:col-4 mt-5">
+                        <div className="col-12 md:col-7 mt-5">
                             <span className="p-input-icon-left flex">
                                 <i className="pi pi-search" />
                                 <InputText
                                     style={{ borderRadius: '99px', width: '620px' }}
-                                    className="inputtext mr-3"
+                                    className="inputtext"
                                     placeholder="Cari Nama Pasien "
                                     onChange={(e) => {
                                         setSearch(e.target.value);
@@ -56,7 +56,6 @@ const QueuePatient = ({ children }: any) => {
                                 <Button style={{ background: '#3899FE', border: 'none', width: '80px' }} label="Cari" />
                             </span>
                         </div>
-
                         <div className="col-12 md:col-2">
                             <h6>Poliklinik</h6>
                             <Dropdown
@@ -71,35 +70,8 @@ const QueuePatient = ({ children }: any) => {
                                 placeholder="Pilih poliklinik"
                             />
                         </div>
+
                         <div className="col-12 md:col-2">
-                            <h6>Status</h6>
-                            <Dropdown
-                                value={searchType}
-                                onChange={(e) => {
-                                    setSearchType(e.target.value);
-                                }}
-                                style={{ borderRadius: '99px', width: '200px' }}
-                                options={listSearchType}
-                                optionLabel="display"
-                                optionValue="code"
-                                placeholder="Pilih Status"
-                            />
-                        </div>
-                        <div className="col-12 md:col-2">
-                            <h6>Jenis Pelayanan</h6>
-                            <Dropdown
-                                value={searchType}
-                                onChange={(e) => {
-                                    setSearchType(e.target.value);
-                                }}
-                                style={{ borderRadius: '99px', width: '200px' }}
-                                options={listSearchType}
-                                optionLabel="display"
-                                optionValue="code"
-                                placeholder="Pilih Jenis Pelayanan"
-                            />
-                        </div>
-                        <div className="col-12 md:col-3">
                             <h6>Tanggal</h6>
                             <Calendar value={date} showIcon style={{ borderRadius: '99px', width: '200px' }} />
                         </div>
@@ -131,9 +103,6 @@ const QueuePatient = ({ children }: any) => {
             </>
         );
     };
-    const actionResendTemplate = () => {
-        <Button style={{ background: '#EBF3FF' }} label="Kirim Ulang" />;
-    };
     // useEffect(() => {
     //     ProductService.getProductsSmall().then((response) => setProducts(response));
     // }, []);
@@ -141,18 +110,6 @@ const QueuePatient = ({ children }: any) => {
         <div className="grid ">
             <div className="col-12">
                 <div className="card">
-                    <div className="flex justify-content-between mb-3">
-                        <div>
-                            <Button label="Cetak Laporan Poli" className="mr-4" outlined />
-                            <Button label="Cetak Laporan Diagnosa" outlined />
-                        </div>
-                        <div>
-                            <Link href={'/registration/formPasien'}>
-                                <i className="pi pi-fw pi-plus mr-1" style={{ color: '#3899FE' }}></i>
-                                Pendaftaran Baru
-                            </Link>
-                        </div>
-                    </div>
                     <DataTable
                         ref={dt}
                         value={product}
@@ -168,17 +125,12 @@ const QueuePatient = ({ children }: any) => {
                         header={header}
                         responsiveLayout="scroll"
                     >
-                        <Column field="noAntrian" header="NO ANTRIAN" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="rekamMedis" header="REKAM MEDIS" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="nourutbpjs" header="NO URUT BPJS" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="tgldaftar" header="TANGGAL DAFTAR" sortable headerStyle={{ minWidth: '15rem' }}></Column>
                         <Column field="namaPasien" header="NAMA PASIEN" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="jenisPasien" header="JENIS PASIEN" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="umur" header="UMUR" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="kk" header="KK" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="alamat" header="ALAMAT" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="unit" header="UNIT" sortable headerStyle={{ minWidth: '15rem' }}></Column>
-                        <Column field="status" header="DOKTER" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="noKartu" header="NO KARTU" sortable headerStyle={{ minWidth: '15rem' }}></Column>
+                        <Column field="namapoli" header="NAMA POLI" sortable headerStyle={{ minWidth: '15rem' }}></Column>
                         <Column header="Aksi" body={actionBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
-                        <Column header="KIRIM ULANG BPJS" body={actionBodyTemplate} headerStyle={{ minWidth: '10rem' }}></Column>
                     </DataTable>
                     <p></p>
                 </div>
@@ -187,4 +139,4 @@ const QueuePatient = ({ children }: any) => {
     );
 };
 
-export default QueuePatient;
+export default QueuePCare;

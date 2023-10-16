@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation';
 import { TabView, TabPanel } from 'primereact/tabview';
 import QueuePatient from './patient-queue/page';
 import Crud from '../pages/crud/page';
+import Link from 'next/link';
+import QueuePCare from './pcare-queue/page';
 
 const BPJSRegistrationPage = ({ children }: any) => {
     interface ConfirmContent {
@@ -68,18 +70,21 @@ const BPJSRegistrationPage = ({ children }: any) => {
     return (
         <div>
             <div className="flex flex-column md:align-items-start">
-                <h5>Pendaftaran Umum</h5>
-                <TabView>
-                    <TabPanel header="Data Pasien">
-                        <Queue />
-                    </TabPanel>
-                    <TabPanel header="Antrian Pasien">
-                        <QueuePatient />
-                    </TabPanel>
-                    <TabPanel header="Antrian PCare BPJS">
-                        <Crud />
-                    </TabPanel>
-                </TabView>
+                <h5>Pendaftaran</h5>
+
+                <div className="mt-3">
+                    <TabView>
+                        <TabPanel header="Data Pasien">
+                            <Queue />
+                        </TabPanel>
+                        <TabPanel header="Antrian Pasien">
+                            <QueuePatient />
+                        </TabPanel>
+                        <TabPanel header="Antrian PCare BPJS">
+                            <QueuePCare />
+                        </TabPanel>
+                    </TabView>
+                </div>
             </div>
         </div>
     );

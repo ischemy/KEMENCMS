@@ -72,7 +72,7 @@ const FormPasien = ({ children }: any) => {
     return (
         <div>
             <div className="flex flex-column md:align-items-start">
-                <h5>Pendaftaran Umum</h5>
+                <h5>Pendaftaran Pasien Baru</h5>
                 <TabView style={{ borderRadius: '99px' }}>
                     <TabPanel style={{ borderRadius: '99px', border: '1px solid #3899FE' }} header="Umum"></TabPanel>
                     <TabPanel header="JAMKESDA"></TabPanel>
